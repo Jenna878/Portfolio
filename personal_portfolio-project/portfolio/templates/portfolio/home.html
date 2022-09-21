@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+</head>
+<body>
+    <h1>Мой сайт ПОРТФОЛИО</h1><br>
+
+    <a href="{% url 'blog:all_blogs' %}">ЧИТАТЬ БЛОГ</a><br>
+
+    {% load static %} 
+
+    <img src="{% static 'portfolio/dog.png' %}" alt="" class="header_img"><br>
+
+    <div class="content">
+        {% for project in projects %}
+            <img src="{{ project.image.url }}" alt="#">
+            <p>{{project.title}}</p>
+            <p>{{project.descr}}</p>
+            <a href="{{ project.url }}">Читать подробнее</a><br>
+        {% endfor %}
+    </div>
+</body>
+</html>

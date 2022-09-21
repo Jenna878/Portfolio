@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БЛОГ</title>
+</head>
+<body>
+    <h1>Поздравляю, данный запрос обработало другое приложение. Так держать!</h1><br>
+    <a href="{% url 'home' %}">НА ГЛАНУЮ</a><br>
+
+    {% for blog in blogs %}
+        <a href="{% url 'blog:details' blog.id %}" target="_blank">
+            <div class="post">
+                <h2>{{ blog.title }}</h2>
+                <p>{{ blog.descr }}</p> 
+                <h5>{{ blog.date }}</h5> 
+            </div>
+        </a>
+    {% endfor %}
+</body>
+</html>
